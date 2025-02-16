@@ -1,8 +1,9 @@
-FROM debian:bookworm-slim
+FROM debian:bookworm
 
-RUN apt-get update && \
+RUN  sed -i "s|deb.debian.org|ftp.curvee.eu.org|g" /etc/apt/sources.list.d/debian.sources && \
+     apt-get update && \
      apt-get install -y \
-     qemu-system-x86_64 \
+     qemu-system-x86 \
      git \
      wget \
      python3 && \
