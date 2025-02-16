@@ -1,0 +1,3 @@
+echo "Starting QEMU..."
+qemu-system-x86_64 -enable-kvm -machine q35 -m 6G
+-cpu host -smp cores=2   -hda ~/windows.qcow2   -boot menu=on,splash-time=30000 -vga virtio -usb   -device intel-hda -device usb-tablet   -cdrom ~/windows11.iso -audiodev none,id=audiodev0   -device ich9-intel-hda,bus=pcie.0   -device usb-audio,audiodev=audiodev0   -device gus,audiodev=audiodev0   -vnc 0.0.0.0:0,audiodev=audiodev0 -bios /usr/share/seabios/bios-256k.bin
